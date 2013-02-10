@@ -2,12 +2,9 @@
 
 = Introduction =
 
-这是一个基于 spring 3 的java简洁框架
+这是一个基于 spring 3 的java简洁框架，
+可以提高基于spring的Web项目的开发速度，方便快捷。
 
-
-= Details =
-
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+= 开发环境=
+*Eclispe* 3.7+
+with m2eclipse plugins (http://www.eclipse.org/m2e/download/)

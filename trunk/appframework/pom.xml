@@ -2,9 +2,9 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>app</groupId>
+	<groupId>org.jiucai.appframework</groupId>
 	<artifactId>appframework</artifactId>
-	<version>1.0</version>
+	<version>1.0.0</version>
 	<packaging>jar</packaging>
 
 	<name>appframework</name>
@@ -15,6 +15,12 @@
 		<spring.version>3.0.7.RELEASE</spring.version>
 	</properties>
 
+	<scm>
+		<connection>scm:svn:http://appframework.googlecode.com/svn/trunk/</connection>
+		<developerConnection>scm:svn:https://appframework.googlecode.com/svn/trunk/</developerConnection>
+		<tag>HEAD</tag>
+		<url>http://appframework.jiucai.org</url>
+	</scm>
 
 	<reporting>
 		<outputDirectory>target/site</outputDirectory>

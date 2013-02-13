@@ -1,5 +1,4 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 
@@ -11,7 +10,7 @@
 
 	<groupId>org.jiucai</groupId>
 	<artifactId>appframework</artifactId>
-	<version>1.0.0-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<packaging>jar</packaging>
 
 	<name>appframework</name>
@@ -27,10 +26,10 @@
 	</licenses>
 
 	<scm>
-		<connection>scm:svn:http://appframework.googlecode.com/svn/trunk/</connection>
-		<developerConnection>scm:svn:https://appframework.googlecode.com/svn/trunk/</developerConnection>
+		<connection>scm:svn:http://appframework.googlecode.com/svn/tags/appframework-1.0.0</connection>
+		<developerConnection>scm:svn:https://appframework.googlecode.com/svn/tags/appframework-1.0.0</developerConnection>
 		<tag>HEAD</tag>
-		<url>http://appframework.googlecode.com/svn/trunk/</url>
+		<url>http://appframework.googlecode.com/svn/tags/appframework-1.0.0</url>
 	</scm>
 
 	<!-- <distributionManagement>

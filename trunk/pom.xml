@@ -10,7 +10,7 @@
 
 	<groupId>org.jiucai</groupId>
 	<artifactId>appframework</artifactId>
-	<version>1.0.0</version>
+	<version>1.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
 	<name>appframework</name>
@@ -26,9 +26,9 @@
 	</licenses>
 
 	<scm>
-		<connection>scm:svn:http://appframework.googlecode.com/svn/tags/appframework-1.0.0</connection>
-		<developerConnection>scm:svn:https://appframework.googlecode.com/svn/tags/appframework-1.0.0</developerConnection>
-		<url>http://appframework.googlecode.com/svn/tags/appframework-1.0.0</url>
+		<connection>scm:svn:http://appframework.googlecode.com/svn/trunk/</connection>
+		<developerConnection>scm:svn:https://appframework.googlecode.com/svn/trunk/</developerConnection>
+		<url>http://appframework.googlecode.com/svn/trunk/</url>
 	</scm>
 
 	<!-- <distributionManagement>

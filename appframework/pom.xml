@@ -2,24 +2,35 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
+
+	<parent>
+		<groupId>org.sonatype.oss</groupId>
+		<artifactId>oss-parent</artifactId>
+		<version>7</version>
+	</parent>
+
 	<groupId>org.jiucai</groupId>
 	<artifactId>appframework</artifactId>
 	<version>1.0.0</version>
 	<packaging>jar</packaging>
 
 	<name>appframework</name>
+	<description>an java application framework based spring 3</description>
 	<url>http://appframework.jiucai.org</url>
 
-	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<spring.version>3.0.7.RELEASE</spring.version>
-	</properties>
+	<licenses>
+		<license>
+			<name>The Apache Software License, Version 2.0</name>
+			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
 
 	<scm>
 		<connection>scm:svn:http://appframework.googlecode.com/svn/trunk/</connection>
 		<developerConnection>scm:svn:https://appframework.googlecode.com/svn/trunk/</developerConnection>
 		<tag>HEAD</tag>
-		<url>http://appframework.jiucai.org</url>
+		<url>http://appframework.googlecode.com/svn/trunk/</url>
 	</scm>
 
 	<reporting>
@@ -38,6 +49,7 @@
 		</developer>
 	</developers>
 
+<!--
 	<repositories>
 		<repository>
 			<releases>
@@ -65,6 +77,13 @@
 			<url>http://repository.codehaus.org</url>
 		</repository>
 	</repositories>
+-->
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<spring.version>3.0.7.RELEASE</spring.version>
+	</properties>
+
 
 	<dependencies>
 
@@ -304,8 +323,6 @@
 			<artifactId>quartz-oracle</artifactId>
 			<version>1.8.6</version>
 		</dependency>
-
-
-
 	</dependencies>
+
 </project>

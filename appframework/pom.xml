@@ -11,7 +11,7 @@
 
 	<groupId>org.jiucai</groupId>
 	<artifactId>appframework</artifactId>
-	<version>1.0.0</version>
+	<version>1.0.0-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
 	<name>appframework</name>
@@ -33,9 +33,69 @@
 		<url>http://appframework.googlecode.com/svn/trunk/</url>
 	</scm>
 
+	<!-- <distributionManagement>
+		<repository>
+		  <id>sonatype-nexus-staging</id>
+		  <name>Nexus Staging Repository</name>
+		  <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+		</repository>
+	</distributionManagement> -->
+
+
 	<reporting>
 		<outputDirectory>target/site</outputDirectory>
 	</reporting>
+
+
+
+	<!-- <build>
+	<plugins>
+	  <plugin>
+		<groupId>org.apache.maven.plugins</groupId>
+		<artifactId>maven-gpg-plugin</artifactId>
+		<version>1.4</version>
+		<executions>
+		  <execution>
+			<id>sign-artifacts</id>
+			<phase>verify</phase>
+			<goals>
+			  <goal>sign</goal>
+			</goals>
+		  </execution>
+		</executions>
+	  </plugin>
+	</plugins>
+	</build> -->
+
+	<profiles>
+	  <profile>
+		<id>release-sign-artifacts</id>
+		<activation>
+		  <property>
+			<name>performRelease</name>
+			<value>true</value>
+		  </property>
+		</activation>
+		<build>
+		  <plugins>
+			<plugin>
+			  <groupId>org.apache.maven.plugins</groupId>
+			  <artifactId>maven-gpg-plugin</artifactId>
+			  <version>1.4</version>
+			  <executions>
+				<execution>
+				  <id>sign-artifacts</id>
+				  <phase>verify</phase>
+				  <goals>
+					<goal>sign</goal>
+				  </goals>
+				</execution>
+			  </executions>
+			</plugin>
+		  </plugins>
+		</build>
+	  </profile>
+	</profiles>
 
 
 	<developers>

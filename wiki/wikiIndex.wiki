@@ -1,4 +1,6 @@
 #labels java,app
+#index page
+
 =Overview=
 
 appframework is a java web application framework based [http://www.springsource.org/spring-framework spring] 3.0
@@ -19,9 +21,13 @@ appframework features:
 
 
 =Requirements=
-SnakeYAML requires Java 6 or higher.
 
-==Develope Requirements==
+appframework requires:
+ * Java 6 or higher.
+ * spring-framework 3.0
+ * other jars in the central repository
+
+==Develop Requirements==
 
 Eclispe 3.6+ 
 

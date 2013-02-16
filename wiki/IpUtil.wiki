@@ -1,4 +1,4 @@
-#summary One-sentence summary of this page.
+#IpUtil usage
 
 = Introduction =
 
@@ -7,7 +7,8 @@ IpUtil for get remote user IP address.
 
 = Details =
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+call IpUtil.getIp(request);
+
+interface:
+
+public static String getIp(HttpServletRequest request)

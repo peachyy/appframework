@@ -1,10 +1,22 @@
 #summary One-sentence summary of this page.
+#labels java,app
 
-= Introduction =
+A java web application framework based spring 3
 
-这是一个基于 spring 3 的java简洁框架，
-可以提高基于spring的Web项目的开发速度，方便快捷。
+这是一个基于 spring 3 的java简洁框架， 可以提高基于spring的Web项目的开发速度，方便快捷。
 
-= 开发环境=
-*Eclispe* 3.7+
-with m2eclipse plugins (http://www.eclipse.org/m2e/download/)
+开发环境
+
+Eclispe 3.7+ with m2eclipse plugins ( [http://www.eclipse.org/m2e/download/] ) 
+
+使用方法：在工程的 pom.xml 中加入依赖：
+
+{{{
+<dependency>
+    <groupId>org.jiucai</groupId>
+    <artifactId>appframework</artifactId>
+    <version>1.0.0</version>
+</dependency>
+}}}
+
+详细的使用文档将会尽快补充。

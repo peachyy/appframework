@@ -1,15 +1,48 @@
-#summary One-sentence summary of this page.
 #labels java,app
+=Overview=
 
-A java web application framework based spring 3
+appframework is a java web application framework based [http://www.springsource.org/spring-framework spring] 3.0
 
-这是一个基于 spring 3 的java简洁框架， 可以提高基于spring的Web项目的开发速度，方便快捷。
+appframework is for the Java programming language.
 
-开发环境
+appframework features:
+ * all dao and service class has its parent class
+ * all http request param is wrapped in Map
+ * provides asynchronous calls of service/dao for http request
+ * provides page/data/download/upload interface to light your code
+ * provides listeners wrapped for you to filter http request
+ * supports html/xml/json result for ajax request
+ * provides basic encode and encrypt methods, such as MD5,base64,zip
+ * provides wrapped log for log4j and common-logging
+ * provides common utils , such as DateTimeUtil, ConfigUtil, IpUtil, EscapeUtil, DomainUtil, SwfUtil ...
+ * provides [http://www.fusioncharts.com/ fusioncharts] java bean wrapped classes
 
-Eclispe 3.7+ with m2eclipse plugins ( [http://www.eclipse.org/m2e/download/] ) 
 
-使用方法：在工程的 pom.xml 中加入依赖：
+=Requirements=
+SnakeYAML requires Java 6 or higher.
+
+==Develope Requirements==
+
+Eclispe 3.6+ 
+
+[http://www.eclipse.org/m2e/download/ m2eclipse plugins]
+
+=Download and Installation=
+
+Releases are available in the central repository.
+The current stable release of appframework: 1.0.0.
+
+====Download links:====
+source: http://code.google.com/p/appframework/source/browse/
+
+JAR package: http://repo2.maven.org/maven2/org/jiucai/appframework/1.0.0/appframework-1.0.0.jar
+
+Repository: http://search.maven.org/#search|ga|1|org.jiucai
+
+
+====Maven project configuration:====
+
+Edit your project pom.xml and add :
 
 {{{
 <dependency>
@@ -19,4 +52,22 @@ Eclispe 3.7+ with m2eclipse plugins ( [http://www.eclipse.org/m2e/download/] )
 </dependency>
 }}}
 
-详细的使用文档将会尽快补充。
+
+=Development and bug reports=
+
+You may check out the appframework source code from appframework [http://code.google.com/p/appframework/source/checkout SVN repository].
+
+You may also [http://code.google.com/p/appframework/source/browse/ browse] the appframework source code.
+
+If you find a bug in appframework, please [http://code.google.com/p/appframework/issues/entry report a bug]. 
+
+You may review open bugs through [http://code.google.com/p/appframework/issues/list the list of open issues].
+
+
+Feel free to improve the [http://code.google.com/p/appframework/w/list documentation].
+
+=Author and copyright=
+
+The appframework library is developed by the team of developers and it is based on spring framework.
+
+appframework is released under the Apache 2.0 license.

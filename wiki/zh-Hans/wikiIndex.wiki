@@ -1,13 +1,13 @@
 #labels java,app
 #index page
 
-=¸ÅÊö=
+=æ¦‚è¿°=
 
 appframework is a java web application framework based [http://www.springsource.org/spring-framework spring] 3.0
 
 appframework is for the Java programming language.
 
-appframework ÌØĞÔ:
+appframework ç‰¹æ€§:
  * all dao and service class has its parent class
  * all http request param is wrapped in Map
  * provides asynchronous calls of service/dao for http request
@@ -20,25 +20,25 @@ appframework ÌØĞÔ:
  * provides [http://www.fusioncharts.com/ fusioncharts] java bean wrapped classes
 
 
-=Ê¹ÓÃ»·¾³ĞèÇó=
+=ä½¿ç”¨ç¯å¢ƒéœ€æ±‚=
 
 appframework requires:
  * Java 6 or higher.
  * spring-framework 3.0
  * other jars in the central repository
 
-==¿ª·¢»·¾³ĞèÇó==
+==å¼€å‘ç¯å¢ƒéœ€æ±‚==
 
 Eclispe 3.6+ 
 
 [http://www.eclipse.org/m2e/download/ m2eclipse plugins]
 
-=ÏÂÔØºÍ°²×°=
+=ä¸‹è½½å’Œå®‰è£…=
 
 Releases are available in the central repository.
 The current stable release of appframework: 1.0.0.
 
-====ÏÂÔØÁ¬½Ó:====
+====ä¸‹è½½è¿æ¥:====
 source: http://code.google.com/p/appframework/source/browse/
 
 JAR package: http://repo2.maven.org/maven2/org/jiucai/appframework/1.0.0/appframework-1.0.0.jar
@@ -46,9 +46,9 @@ JAR package: http://repo2.maven.org/maven2/org/jiucai/appframework/1.0.0/appfram
 Repository: http://search.maven.org/#search|ga|1|org.jiucai
 
 
-====Maven ¹¤³ÌÅäÖÃ:====
+====Maven å·¥ç¨‹é…ç½®:====
 
-Edit your project pom.xml and add :
+ä¿®æ”¹å·¥ç¨‹çš„ pom.xml å¹¶å¢åŠ  :
 
 {{{
 <dependency>
@@ -59,7 +59,7 @@ Edit your project pom.xml and add :
 }}}
 
 
-=¿ª·¢ºÍÈ±Ïİ±¨¸æ=
+=å¼€å‘å’Œç¼ºé™·æŠ¥å‘Š=
 
 You may check out the appframework source code from appframework [http://code.google.com/p/appframework/source/checkout SVN repository].
 
@@ -72,7 +72,7 @@ You may review open bugs through [http://code.google.com/p/appframework/issues/l
 
 Feel free to improve the [http://code.google.com/p/appframework/w/list documentation].
 
-=×÷ÕßºÍ°æÈ¨=
+=ä½œè€…å’Œç‰ˆæƒ=
 
 The appframework library is developed by the team of developers and it is based on spring framework.
 

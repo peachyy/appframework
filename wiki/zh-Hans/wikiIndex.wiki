@@ -1,0 +1,79 @@
+#labels java,app
+#index page
+
+=概述=
+
+appframework is a java web application framework based [http://www.springsource.org/spring-framework spring] 3.0
+
+appframework is for the Java programming language.
+
+appframework 特性:
+ * all dao and service class has its parent class
+ * all http request param is wrapped in Map
+ * provides asynchronous calls of service/dao for http request
+ * provides page/data/download/upload interface to light your code
+ * provides listeners wrapped for you to filter http request
+ * supports html/xml/json result for ajax request
+ * provides basic encode and encrypt methods, such as MD5,base64,zip
+ * provides wrapped log for log4j and common-logging
+ * provides common utils , such as DateTimeUtil, ConfigUtil, IpUtil, EscapeUtil, DomainUtil, SwfUtil ...
+ * provides [http://www.fusioncharts.com/ fusioncharts] java bean wrapped classes
+
+
+=使用环境需求=
+
+appframework requires:
+ * Java 6 or higher.
+ * spring-framework 3.0
+ * other jars in the central repository
+
+==开发环境需求==
+
+Eclispe 3.6+ 
+
+[http://www.eclipse.org/m2e/download/ m2eclipse plugins]
+
+=下载和安装=
+
+Releases are available in the central repository.
+The current stable release of appframework: 1.0.0.
+
+====下载连接:====
+source: http://code.google.com/p/appframework/source/browse/
+
+JAR package: http://repo2.maven.org/maven2/org/jiucai/appframework/1.0.0/appframework-1.0.0.jar
+
+Repository: http://search.maven.org/#search|ga|1|org.jiucai
+
+
+====Maven 工程配置:====
+
+Edit your project pom.xml and add :
+
+{{{
+<dependency>
+    <groupId>org.jiucai</groupId>
+    <artifactId>appframework</artifactId>
+    <version>1.0.0</version>
+</dependency>
+}}}
+
+
+=开发和缺陷报告=
+
+You may check out the appframework source code from appframework [http://code.google.com/p/appframework/source/checkout SVN repository].
+
+You may also [http://code.google.com/p/appframework/source/browse/ browse] the appframework source code.
+
+If you find a bug in appframework, please [http://code.google.com/p/appframework/issues/entry report a bug]. 
+
+You may review open bugs through [http://code.google.com/p/appframework/issues/list the list of open issues].
+
+
+Feel free to improve the [http://code.google.com/p/appframework/w/list documentation].
+
+=作者和版权=
+
+The appframework library is developed by the team of developers and it is based on spring framework.
+
+appframework is released under the Apache 2.0 license.

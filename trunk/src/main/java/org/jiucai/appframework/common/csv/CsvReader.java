@@ -18,7 +18,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA
  */
-package com.csvreader;
+package org.jiucai.appframework.common.csv;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -1319,7 +1319,7 @@ public class CsvReader {
 
 				if (userSettings.TrimWhitespace && !startedWithQualifier) {
 					while (lastLetter >= 0
-							&& (columnBuffer.Buffer[lastLetter] == Letters.SPACE || columnBuffer.Buffer[lastLetter] == Letters.TAB)) {
+							&& (columnBuffer.Buffer[lastLetter] == Letters.SPACE || columnBuffer.Buffer[lastLetter] == Letters.SPACE)) {
 						lastLetter--;
 					}
 				}

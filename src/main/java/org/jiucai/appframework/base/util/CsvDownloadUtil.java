@@ -38,7 +38,7 @@ public class CsvDownloadUtil extends BaseUtil {
 	 /**
 	  * 为单元格数据增加后缀，用来支持 Excel 中正确显示格式
 	  */
-	 protected static String cellSuffix = "\t";
+	 protected static String cellSuffix = "";
 	 
 
 	 /**

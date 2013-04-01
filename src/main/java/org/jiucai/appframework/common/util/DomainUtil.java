@@ -149,9 +149,8 @@ public class DomainUtil extends BaseUtil {
 	 * 
 	 * 支持 IPV4 和 IPV6 的 粗略判断
 	 * 
-	 * @param domain
-	 *            域名
-	 * @return
+	 * @param domain  域名
+	 * @return 是 ip 返回 true 否则 false
 	 */
 	public synchronized static Boolean isIp(final String domain) {
 		String result = replaceIpV6(domain);
@@ -182,7 +181,7 @@ public class DomainUtil extends BaseUtil {
 	 * 获取 url 中的域名部分
 	 * 
 	 * @param url
-	 * @return
+	 * @return String
 	 */
 	public synchronized static String getDomain(final String url) {
 		String domain = url;

@@ -24,7 +24,7 @@ import org.apache.commons.logging.LogFactory;
  * 		b. 调用 Config.addConfig(配置文件名)，然后使用返回值的方法获取配置项数据;
  * </pre>
  * 
- * @author dangwei.zhai at 2010-11-9
+ * @author zhaidw at 2010-11-9
  * 
  */
 public class ConfigUtil {
@@ -64,7 +64,7 @@ public class ConfigUtil {
 	/**
 	 * 获取最原始的 Configuration
 	 * 
-	 * @return
+	 * @return Configuration
 	 */
 	public synchronized static Configuration getConfiguration() {
 
@@ -78,7 +78,7 @@ public class ConfigUtil {
 	 * 设置配置文件编码
 	 * 
 	 * @param encoding
-	 * @return
+	 * @return String
 	 */
 	public synchronized static String setEncoding(final String encoding) {
 
@@ -90,8 +90,8 @@ public class ConfigUtil {
 	/**
 	 * 设置配置文件名扩展名，包含. 比如 .properties
 	 * 
-	 * @param encoding
-	 * @return
+	 * @param suffix
+	 * @return String
 	 */
 	public synchronized static String setSuffix(final String suffix) {
 
@@ -104,7 +104,7 @@ public class ConfigUtil {
 	 * 每次加载同名配置时，自动移除旧的同名配置
 	 * 
 	 * @param configFileName
-	 * @return
+	 * @return Configuration
 	 */
 	public synchronized static Configuration addConfig(String configFileName) {
 		try {
@@ -142,7 +142,7 @@ public class ConfigUtil {
 	 * 获取字符串配置值 无法获取时返回null
 	 * 
 	 * @param key
-	 * @return
+	 * @return String
 	 */
 	public synchronized static String getString(String key) {
 		String value = null;

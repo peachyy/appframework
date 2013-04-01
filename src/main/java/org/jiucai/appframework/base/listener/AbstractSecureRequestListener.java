@@ -48,6 +48,7 @@ public abstract class AbstractSecureRequestListener extends AppRequestListener {
 	 */
 	protected synchronized void trimRequestParam(HttpServletRequest request) {
 
+		@SuppressWarnings("unchecked")
 		Enumeration<String> paramNames = (Enumeration<String>) request.getParameterNames();
 
 		if (null != paramNames) {
@@ -94,7 +95,7 @@ public abstract class AbstractSecureRequestListener extends AppRequestListener {
 	/**
 	 * 放在 reqesut attribute 中的 parameter 的前缀
 	 * 
-	 * @return
+	 * @return String
 	 */
 	public abstract String getReqPrefix();
 

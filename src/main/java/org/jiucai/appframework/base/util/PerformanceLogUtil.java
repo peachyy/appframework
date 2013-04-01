@@ -6,16 +6,14 @@ package org.jiucai.appframework.base.util;
 import java.util.List;
 
 /**
- * @model PerformanceLogUtil
- * @description PerformanceLogUtil
+ * PerformanceLogUtil
  * @author wangbo
  * @version 1.0
- * @date Jan 24, 2013
  */
 public class PerformanceLogUtil {
 	
 	/**
-	 * @description 格式化性能日志
+	 * 格式化性能日志
 	 * @param moduleName 值：关键词竞价, 关键词报表
 	 * @param timeType 计时分类：数据库, 应用, 页面
 	 * @param projectId
@@ -23,7 +21,7 @@ public class PerformanceLogUtil {
 	 * @param start_time
 	 * @param end_time
 	 * @param all_time
-	 * @return
+	 * @return String
 	 */
 	public static String formatPerformanceLog(String moduleName,String timeType, Long projectId,List<Long> accountList,String start_time,String end_time,Long all_time ){
 		//service计时输出开始 by wangbo
@@ -50,14 +48,6 @@ public class PerformanceLogUtil {
 		time_log.append(all_time).append("ms");//花费时间
 		//service计时输出结束 by wangbo
 		return time_log.toString();
-	}
-	/**
-	 * @description main
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
 	}
 
 }

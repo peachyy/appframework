@@ -69,7 +69,7 @@ public class BaseController {
 	 * @param resultSize
 	 *            总记录数
 	 * @param request
-	 * @return
+	 * @return PageInfo
 	 */
 	public PageInfo getPageInfo(Long resultSize, HttpServletRequest request) {
 		// 分页信息

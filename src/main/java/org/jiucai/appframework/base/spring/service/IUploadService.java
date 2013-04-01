@@ -22,9 +22,9 @@ public interface IUploadService {
 	public abstract String handleRequest(Map<String, Object> param,MultipartHttpServletRequest request);
 
 	/***
-	 * 返回数据 ContentType。 html ? xml ? json ? 
+	 * 返回数据 ContentType： html ? xml ? json ? 
 	 * 
-	 * @return 
+	 * @return String
 	 */
 	public abstract String getContentType(Map<String, Object> param);
 	

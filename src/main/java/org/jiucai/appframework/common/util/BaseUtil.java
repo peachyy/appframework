@@ -15,7 +15,7 @@ public abstract class BaseUtil {
 	 * 把 Map 中的 Object 对象转换成可 显示字符串
 	 * 
 	 * @param val
-	 * @return
+	 * @return String
 	 */
 	public static String convertMapValue(Object val) {
 		String result = "";

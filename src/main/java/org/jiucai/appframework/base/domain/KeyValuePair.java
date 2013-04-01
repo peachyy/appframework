@@ -5,7 +5,8 @@ import java.io.Serializable;
 /**
  * 数据格式 键值对
  * 
- * @history 2012-02-20 by zhaidw 增加 跨行跨列 属性
+ * 2012-02-20 by zhaidw 增加 跨行跨列 属性
+ * 
  * @author zhaidw
  * 
  */
@@ -74,7 +75,6 @@ public class KeyValuePair implements Serializable {
 	
 	/**
 	 * 需要构造可排序的数据表格时使用 sortable 是否需要排序的标注  1排序，0不排序
-	 * @author 耿志新
 	 */
 	public KeyValuePair(String code, String text, String sortable) {
 		super();

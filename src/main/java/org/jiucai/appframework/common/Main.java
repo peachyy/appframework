@@ -11,7 +11,7 @@ public class Main {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		System.out.println("This is common lib for app.");
+		System.out.println("This is common lib for org.jiucai.appframework");
 
 	}
 

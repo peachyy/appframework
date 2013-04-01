@@ -13,9 +13,9 @@ public class StringUtil{
 	/**
 	 * 判断字符串是否为数字
 	 * @param str
-	 * @return
+	 * @return Boolean
 	 */
-	public static boolean isNumber(String str){
+	public static Boolean isNumber(String str){
 		if(str == null){
 			return false;
 		}
@@ -31,7 +31,7 @@ public class StringUtil{
 	/**
 	 * 转义正则特殊符号
 	 * @param searchStr
-	 * @return
+	 * @return String
 	 */
 	public static String chuanyiPipei(String searchStr){
 		String[] reg={"*","^","$",".","?","+","(",")","[","]","{","}","<",">","|"};

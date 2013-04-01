@@ -23,7 +23,7 @@ public interface IDownloadService {
 	/***
 	 * 返回数据 ContentType
 	 * 
-	 * @return 
+	 * @return String
 	 */
 	public abstract String getContentType(Map<String, Object> param);
 	
@@ -35,14 +35,14 @@ public interface IDownloadService {
 	 * 而一个汉字编码成UTF-8是9个字节，那么17个字便是153个字节，所以会报错。
 	 * </p>
 	 * 
-	 * @return
+	 * @return 浏览器下载对话框显示文件名
 	 */
 	public abstract String getFileName(Map<String, Object> param);
 	
 	/**
 	 * 返回要下载的文件是否存在
 	 * @param param
-	 * @return
+	 * @return Boolean
 	 */
 	public abstract Boolean fileExists(Map<String, Object> param);
 	

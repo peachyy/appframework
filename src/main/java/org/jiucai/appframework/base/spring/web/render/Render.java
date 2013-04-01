@@ -14,7 +14,7 @@ public interface Render {
 	/**
 	 * 设置返回数据的 HTTP ContentType
 	 * 
-	 * @return
+	 * @return String
 	 */
 	public String getContentType();
 
@@ -22,7 +22,7 @@ public interface Render {
 	 * 根据对象构造要输出的字符串
 	 * 
 	 * @param data
-	 * @return
+	 * @return getString
 	 * @throws Exception
 	 */
 	public String getString(Object data) throws Exception;

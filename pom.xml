@@ -8,7 +8,7 @@
 
 	<groupId>org.jiucai</groupId>
 	<artifactId>appframework</artifactId>
-	<version>1.0.1</version>
+	<version>1.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
 	<name>appframework</name>
@@ -43,9 +43,19 @@
 		<outputDirectory>target/site</outputDirectory>
 	</reporting>
 
-	<build>
-		<plugins>
-			<plugin>
+
+	<profiles>
+	  <profile>
+		<id>release-sign-artifacts</id>
+		<activation>
+		  <property>
+			<name>performRelease</name>
+			<value>true</value>
+		  </property>
+		</activation>
+		<build>
+		  <plugins>
+		  	<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>2.5.1</version>
@@ -62,59 +72,6 @@
 					</dependency>
 				</dependencies>
 			</plugin>
-
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-source-plugin</artifactId>
-				<version>2.1.1</version>
-				<executions>
-					<execution>
-						<id>attach-sources</id>
-						<goals>
-							<goal>jar-no-fork</goal>
-						</goals>
-					</execution>
-				</executions>
-				<configuration>
-					<attach>true</attach>
-				</configuration>
-			</plugin>
-
-			<plugin>
-				<artifactId>maven-javadoc-plugin</artifactId>
-				<executions>
-					<execution>
-						<id>attach-javadoc</id>
-						<goals>
-							<goal>jar</goal>
-						</goals>
-					</execution>
-				</executions>
-				<configuration>
-					<skip>false</skip>
-					<show>public</show>
-					<charset>UTF-8</charset>
-					<encoding>UTF-8</encoding>
-					<docencoding>UTF-8</docencoding>
-					<links>
-						<link>http://docs.oracle.com/javase/6/docs/api</link>
-					</links>
-				</configuration>
-			</plugin>
-		</plugins>
-	</build>
-
-	<profiles>
-	  <profile>
-		<id>release-sign-artifacts</id>
-		<activation>
-		  <property>
-			<name>performRelease</name>
-			<value>true</value>
-		  </property>
-		</activation>
-		<build>
-		  <plugins>
 			<plugin>
 			  <groupId>org.apache.maven.plugins</groupId>
 			  <artifactId>maven-gpg-plugin</artifactId>

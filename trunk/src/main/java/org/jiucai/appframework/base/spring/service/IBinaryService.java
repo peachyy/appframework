@@ -26,7 +26,7 @@ public interface IBinaryService {
 	/**
 	 * 返回要下载的文件是否存在
 	 * @param param
-	 * @return
+	 * @return Boolean
 	 */
 	public abstract Boolean fileExists(Map<String, Object> param);
 	

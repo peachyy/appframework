@@ -12,8 +12,7 @@ import org.joda.time.format.DateTimeFormatter;
 
 /**
  * DateTime 工具类
- * @author zhaidw
- * @see http://joda-time.sourceforge.net/api-release/index.html
+ * referer: http://joda-time.sourceforge.net/api-release/index.html
  * <pre>
  * DateTime is the standard implementation of an unmodifiable datetime class.
  * The pattern syntax is mostly compatible with java.text.SimpleDateFormat
@@ -51,6 +50,7 @@ import org.joda.time.format.DateTimeFormatter;
  ''      single quote                 literal       '
  * </pre>
  *
+ * @author zhaidw
  */
 public class DateTimeUtil extends BaseUtil  {
 	
@@ -78,7 +78,7 @@ public class DateTimeUtil extends BaseUtil  {
 	 * 转换字符串为 DateTime 对象
 	 * @param date
 	 * @param pattern
-	 * @return
+	 * @return DateTime
 	 */
 	public static DateTime parseDateTime(String date, String pattern){
 		
@@ -90,12 +90,18 @@ public class DateTimeUtil extends BaseUtil  {
 	/**
 	 * 转换 date 为 DateTime 对象
 	 * @param date
-	 * @return
+	 * @return DateTime
 	 */
 	public static DateTime getDateTime(Date date){
 		return new DateTime(date.getTime(),DEFAULT_TIMEZONE);
 	}
 	
+	/**
+	 * 返回格式化的字符串
+	 * @param dt
+	 * @param pattern
+	 * @return String
+	 */
 	public static String getFormatedDateTime(DateTime dt, String pattern){
 		return dt.toString(pattern, DEFAULT_LOCALE);
 	}
@@ -106,7 +112,7 @@ public class DateTimeUtil extends BaseUtil  {
 	 * 
 	 * @param date 指定的日期对象
 	 * @param pattern 格式字符串，可选，默认 yyyy-mm-dd
-	 * @return
+	 * @return String
 	 */
 	public static String getFormatedDate(Date date, String pattern){
 		
@@ -119,7 +125,7 @@ public class DateTimeUtil extends BaseUtil  {
 	 * 
 	 * @param days 日期相差的天数
 	 * @param pattern 格式字符串，可选，默认 yyyy-mm-dd
-	 * @return
+	 * @return String
 	 */
 	public static String getFormatedDate(int days, String pattern) {
 		
@@ -163,7 +169,7 @@ public class DateTimeUtil extends BaseUtil  {
 	 * <p>
 	 * referer: http://joda-time.sourceforge.net/api-release/org/joda/time/format/DateTimeFormat.html
 	 * </p>
-	 * @return
+	 * @return DateTime
 	 */
 	public static DateTime getDateTimeFromYearWeek(String yearWeek){
 		
@@ -171,8 +177,14 @@ public class DateTimeUtil extends BaseUtil  {
 		return dt;
 	}
 	
-	
-	
+	/**
+	 * 返回当前系统时间
+	 * @return String
+	 */
+	public static String getCurrentTime() {
+		return DateTimeUtil.getFormatedDate(new Date(), "yyyy-MM-dd HH:mm:ss");
+	}
+
 
 	
 	

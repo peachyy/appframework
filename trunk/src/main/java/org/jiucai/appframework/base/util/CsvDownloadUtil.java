@@ -72,7 +72,6 @@ public class CsvDownloadUtil extends BaseUtil {
 	 * @param sumList 总计列表
 	 * @param isAppend 是否文件追加数据
 	 * @return 生成的文件全路径
-	 * @author zhangyadong
 	 */
 	@SuppressWarnings("unchecked")
 	public static final String saveFile(final String filePath,String fileName ,List<KeyValuePair> headList,
@@ -177,9 +176,9 @@ public class CsvDownloadUtil extends BaseUtil {
 		return fileSavedName.toString();
 	}
 	
-	/**
+	/** getFileName
 	 * @param displayName
-	 * @return
+	 * @return String
 	 */
 	public static String getFileName(String displayName){
 		//显示下载文件名称
@@ -195,12 +194,7 @@ public class CsvDownloadUtil extends BaseUtil {
 		return displayFileName;
 	};
 	
-	/**
-	 * 
-	 * @author：耿志新
-	 * @Description：根据用户所选表头进行筛选
-	 *
-	 */
+	//根据用户所选表头进行筛选
 	private static List<List<String>> getCsvHeadList(List<KeyValuePair> headList,List<Map<String,Object>> dataList){
 		
 		List<List<String>> dataBody = new ArrayList<List<String>>();

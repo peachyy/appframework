@@ -31,13 +31,9 @@ public class SwfUtil extends BaseUtil {
 	}
 
 	/**
-	 * Get the header info for a (potential) SWF file specified by a file path
-	 * String.
-	 * 
-	 * @param path
-	 *            String containing path to file.
-	 * 
-	 * @return {@link SWFinfo} object or null if file not found or not SWF.
+	 * Get the header info for a (potential) SWF file specified by a file path String.
+	 * @param path containing path to file.
+	 * @return SWFinfo object or null if file not found or not SWF.
 	 * @throws FileNotFoundException
 	 */
 	public static SwfInfo getInfo(String path) throws FileNotFoundException {
@@ -98,13 +94,11 @@ public class SwfUtil extends BaseUtil {
 	}
 
 	/**
-	 * Get the header info for a (potential) SWF file specified by a
-	 * {@link File} object.
+	 * Get the header info for a (potential) SWF file specified by a File object.
 	 * 
-	 * @param path
-	 *            {@link File} pointing to the desired SWF file.
+	 * @param file File pointing to the desired SWF file.
 	 * 
-	 * @return {@link SWFinfo} object or null if file not found or not SWF.
+	 * @return SWFinfo object or null if file not found or not SWF.
 	 * @throws FileNotFoundException
 	 */
 	public static SwfInfo getInfo(File file) throws FileNotFoundException {
@@ -122,7 +116,7 @@ public class SwfUtil extends BaseUtil {
 	 * 获取文件输入流
 	 * 
 	 * @param fis
-	 * @return
+	 * @return SwfInfo
 	 * @throws IOException
 	 */
 	public static SwfInfo getInfo(InputStream fis) throws IOException {
@@ -181,15 +175,6 @@ public class SwfUtil extends BaseUtil {
 		return dims;
 	}
 
-	/**
-	 * This can be run from a desktop command line sitting at the .../bin
-	 * directory as:
-	 * 
-	 * java resnbl.android.swfview.SWFInfo swf_file
-	 * 
-	 * @param args
-	 *            path to swf_file to parse
-	 */
 	// commented out to prevent Eclipse from thinkg this is a standard Java app
 	// when used for Android!
 	// public static void main(String[] args)

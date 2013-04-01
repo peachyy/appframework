@@ -21,7 +21,7 @@ public class ValueFormatUtil extends BaseUtil {
 	 * 格式化百分比；如果有小数，则保留 doubleFormater 指定的位数
 	 * 
 	 * @param val
-	 * @return
+	 * @return String
 	 */
 	public static String formatPercentString(final Object val) {
 
@@ -51,7 +51,7 @@ public class ValueFormatUtil extends BaseUtil {
 	 * 格式化数字；如果有小数，则保留 doubleFormater 指定的位数
 	 * 
 	 * @param val
-	 * @return
+	 * @return String
 	 */
 	public static String formatNumberString(final Object val) {
 		String result = convertMapValue(val);
@@ -73,7 +73,7 @@ public class ValueFormatUtil extends BaseUtil {
 	 * 判断字符串值为null则返回 nullValue 常量代表的字符串
 	 * 
 	 * @param val
-	 * @return
+	 * @return String
 	 */
 	public static String formatNullString(final Object val) {
 		String result = convertMapValue(val);

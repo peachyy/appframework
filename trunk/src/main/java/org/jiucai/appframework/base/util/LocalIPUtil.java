@@ -86,7 +86,7 @@ public class LocalIPUtil extends BaseUtil {
 	/**
 	 * 根据网卡名获取 ip
 	 * @param networkInterfaceName
-	 * @return
+	 * @return String
 	 */
 	public static String getIpByNetworkInterfaceName(String networkInterfaceName) {
 

@@ -113,7 +113,7 @@ public class AsynchronousCallUtil extends BaseUtil {
 	/**
 	 * 获得任务的返回值，List中的值按提交任务的顺序返回
 	 * 
-	 * @return
+	 * @return List<Object>
 	 * @throws Exception 
 	 */
 	static public List<Object> get() throws Exception {

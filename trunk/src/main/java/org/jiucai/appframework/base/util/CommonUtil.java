@@ -6,13 +6,10 @@ public class CommonUtil {
 	/**
 	 * 构造Oracle分页SQL
 	 * 
-	 * @param sql
-	 *            原始SQL
-	 * @param page
-	 *            页码 默认 1
-	 * @param pageSize
-	 *            每页记录数 默认10
-	 * @return
+	 * @param sql 原始SQL
+	 * @param page 页码 默认 1
+	 * @param pageSize 每页记录数 默认10
+	 * @return String
 	 */
 	public static String getPagedSQL(String sql, Long page, Long pageSize) {
 
@@ -39,10 +36,8 @@ public class CommonUtil {
 	/**
 	 * 计算页数
 	 * 
-	 * @param resultSize
-	 *            记录数
-	 * @param pageSize
-	 *            每页显示的记录数
+	 * @param resultSize 记录数
+	 * @param pageSize 每页显示的记录数
 	 * @return 总页数
 	 */
 	public static final Long getPageCount(Long resultSize, Long pageSize) {
@@ -62,7 +57,7 @@ public class CommonUtil {
 	 * 计算当前页
 	 * @param pageStart
 	 * @param pageSize
-	 * @return
+	 * @return Long
 	 */
 	public static final Long getPage(Long pageStart,Long pageSize){
 		Long page = 1l;
@@ -73,7 +68,7 @@ public class CommonUtil {
 	/**
 	 * 获取每页展示数据记录数
 	 * 
-	 * @return
+	 * @return Long
 	 */
 	public static final Long getPageSize() {
 		return 10L;

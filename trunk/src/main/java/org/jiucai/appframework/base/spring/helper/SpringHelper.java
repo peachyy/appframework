@@ -18,7 +18,7 @@ public class SpringHelper {
 	/**
 	 * 从 ServletContext 获取 ApplicationContext
 	 * @param request
-	 * @return
+	 * @return ApplicationContext
 	 */
 	public static ApplicationContext getApplicationContext(HttpServletRequest request) {
 
@@ -37,7 +37,7 @@ public class SpringHelper {
 	 * 获取操作数据的 SimpleJdbcOperations
 	 * 
 	 * @param request
-	 * @return
+	 * @return SimpleJdbcOperations
 	 */
 	public static SimpleJdbcOperations getSimpleJdbcTemplate(
 			HttpServletRequest request) {
@@ -51,7 +51,7 @@ public class SpringHelper {
 	 * 获取操作数据的 指定ID 的 SimpleJdbcOperations
 	 * 
 	 * @param request
-	 * @return
+	 * @return SimpleJdbcOperations
 	 */
 	public static SimpleJdbcOperations getSimpleJdbcTemplate(
 			HttpServletRequest request, String beanId) {

@@ -19,7 +19,7 @@ public abstract class BaseDomain implements Serializable {
 
 	/**
 	 * 数据库查询返回结果的唯一行号
-	 * @return
+	 * @return Long
 	 */
 	public Long getR() {
 		return r;

@@ -2,6 +2,11 @@ package org.jiucai.appframework.base.domain;
 
 import java.io.Serializable;
 
+/**
+ * 分页对象
+ * @author zhaidw
+ *
+ */
 public class PageInfo implements Serializable {
 
 	private static final long serialVersionUID = -1763402983405186186L;

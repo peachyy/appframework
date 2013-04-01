@@ -57,8 +57,7 @@ public class Zip {
 	 * 
 	 * @param src
 	 * @param archive
-	 * @param comment
-	 *            压缩包注释
+	 * @param comment 压缩包注释
 	 * @throws FileNotFoundException
 	 * @throws IOException
 	 */
@@ -115,11 +114,9 @@ public class Zip {
 	/**
 	 * 读取压缩包中的指定文件
 	 * 
-	 * @param archive
-	 *            压缩包文件
-	 * @param filePath
-	 *            指定的文件名
-	 * @return
+	 * @param archive 压缩包文件
+	 * @param filePath 指定的文件名
+	 * @return InputStream
 	 * @throws IOException
 	 */
 	public synchronized static InputStream readFile(String archive,
@@ -401,10 +398,7 @@ public class Zip {
 		}
 	}
 
-	/**
-	 * @param args
-	 * @throws IOException
-	 */
+
 	public static void main(String[] args) throws Exception {
 		String src = "d:/Enter_Page_ID.log";
 		;// 指定压缩源，可以是目录或文件

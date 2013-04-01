@@ -10,6 +10,11 @@ import org.jiucai.appframework.common.util.AliasUtil;
 import org.jiucai.appframework.common.util.LogUtil;
 import org.jiucai.appframework.common.util.Logs;
 
+/**
+ * 通过 request 获取客户端 ip
+ * @author zhaidw
+ *
+ */
 public class IpUtil {
 
 	private static Logs log = LogUtil.getLog(AliasUtil.class);

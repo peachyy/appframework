@@ -46,7 +46,7 @@ public final class Base64 {
 	 * @param data 要编码的字节数组
 	 * @return 编码后的字符串
 	 */
-	public static final String encode(byte[] data) {
+	public static synchronized final String encode(byte[] data) {
 		StringBuffer sb = new StringBuffer();
 		int r = data.length % 3;
 		int len = data.length - r;
@@ -81,7 +81,7 @@ public final class Base64 {
 	 * @param str 已经编码的Base64字符串
 	 * @return 解码后的字节数组
 	 */
-	public static final byte[] decode(String str) {
+	public static synchronized final byte[] decode(String str) {
 		byte[] data = str.getBytes();
 		int len = data.length;
 		ByteArrayOutputStream buf = new ByteArrayOutputStream(len);

@@ -36,11 +36,11 @@ public class EncryptUtil {
 	 * @return 返回加密后的字符串
 	 * @throws Exception
 	 */
-	public static String encrypt(String msg, String key) throws Exception {
+	public static synchronized String encrypt(String msg, String key) throws Exception {
 		return MD5.encode(encode(msg, key));
 	}
 
-	public static String encode(String msg, String key) throws Exception {
+	public static synchronized String encode(String msg, String key) throws Exception {
 		String encodeMsg = "";
 		byte[] data;
 
@@ -56,7 +56,7 @@ public class EncryptUtil {
 		return encodeMsg;
 	}
 
-	public static String decode(String encodeMsg, String key) throws Exception {
+	public static synchronized String decode(String encodeMsg, String key) throws Exception {
 
 		String decodeMsg = "";
 

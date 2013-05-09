@@ -71,7 +71,7 @@ public class MD5 {
 	 * @param inbuf 要处理的字符串
 	 * @return MD5 散列的字符串
 	 */
-	public static String encode(String inbuf) {
+	public static synchronized final String encode(final String inbuf) {
 		md5Init();
 		md5Update(inbuf.getBytes(), inbuf.length());
 		md5Final();

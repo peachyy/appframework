@@ -34,7 +34,7 @@ public final class XXTEA {
      * @param key encrypt key
      * @return encrypted data
      */
-    public static final byte[] encrypt(byte[] data, byte[] key) {
+    public static synchronized final byte[] encrypt(byte[] data, byte[] key) {
         if (data.length == 0) {
             return data;
         }
@@ -49,7 +49,7 @@ public final class XXTEA {
      * @param key encrypt key
      * @return decrypted data
      */
-    public static final byte[] decrypt(byte[] data, byte[] key) {
+    public static synchronized final byte[] decrypt(byte[] data, byte[] key) {
         if (data.length == 0) {
             return data;
         }

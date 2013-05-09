@@ -25,13 +25,12 @@ public class JsonRender extends BaseRender {
 
 		// 格式化输出
 		mapper.configure(SerializationConfig.Feature.INDENT_OUTPUT, true);
-
+		
 		// 不输出null值
-		mapper.getSerializationConfig().setSerializationInclusion(JsonSerialize.Inclusion.NON_NULL);
-		//mapper.configure(SerializationConfig.Feature.WRITE_NULL_PROPERTIES,false);
-		// mapper.getSerializationConfig().setSerializationInclusion(JsonSerialize.Inclusion.NON_NULL);
-		mapper.configure(SerializationConfig.Feature.WRITE_NULL_MAP_VALUES,
-				false);
+		mapper.getSerializationConfig().withSerializationInclusion(JsonSerialize.Inclusion.NON_NULL);
+
+		// 不输出 Map entries with null values 
+		mapper.configure(SerializationConfig.Feature.WRITE_NULL_MAP_VALUES,false);
 
 	}
 

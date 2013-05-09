@@ -1706,6 +1706,7 @@ public class CsvReader {
 	private class UserSettings {
 		// having these as publicly accessible members will prevent
 		// the overhead of the method call that exists on properties
+		@SuppressWarnings("unused")
 		public boolean CaseSensitive;
 
 		public char TextQualifier;

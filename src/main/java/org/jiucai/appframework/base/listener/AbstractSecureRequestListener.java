@@ -48,7 +48,7 @@ public abstract class AbstractSecureRequestListener extends AppRequestListener {
 	 */
 	protected synchronized void trimRequestParam(HttpServletRequest request) {
 
-		@SuppressWarnings("unchecked")
+
 		Enumeration<String> paramNames = (Enumeration<String>) request.getParameterNames();
 
 		if (null != paramNames) {

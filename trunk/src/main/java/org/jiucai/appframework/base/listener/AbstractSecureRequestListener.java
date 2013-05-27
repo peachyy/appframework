@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletRequest;
  * @author zhaidw
  * 
  */
-public abstract class AbstractSecureRequestListener extends AppRequestListener {
+public abstract class AbstractSecureRequestListener extends AbstractRequestListener {
 
 	public AbstractSecureRequestListener() {
 		super();

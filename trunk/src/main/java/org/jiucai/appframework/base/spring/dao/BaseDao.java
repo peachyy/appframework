@@ -2,59 +2,30 @@ package org.jiucai.appframework.base.spring.dao;
 
 import org.jiucai.appframework.common.util.LogUtil;
 import org.jiucai.appframework.common.util.Logs;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.JdbcOperations;
-import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.simple.SimpleJdbcOperations;
+import org.springframework.jdbc.core.namedparam.NamedParameterJdbcOperations;
 
-public class BaseDao {
+/**
+ * DAO 基类
+ * @author zhaidw
+ *
+ */
+public abstract class BaseDao {
 
 	protected Logs log = LogUtil.getLog(getClass());
 
-	@Autowired
-	private JdbcOperations jdbcTemplate;
-
-	@Autowired
-	private SimpleJdbcOperations simpleJdbcTemplate;
+	protected NamedParameterJdbcOperations namedParameterJdbcTemplate;
 
 	/**
-	 * @see JdbcTemplate
-	 * @see org.springframework.jdbc.core.JdbcOperations
-	 * 从 Spring 3.1 JdbcTemplate 和 NamedParameterJdbcTemplate 包含了 SimpleJdbcTemplate 的所有功能，但还不完善，不能完全替代
+	 * 返回 NamedParameterJdbcOperations
+	 * @return NamedParameterJdbcOperations
 	 */
-	public SimpleJdbcOperations getSimpleJdbcTemplate() {
-		return simpleJdbcTemplate;
+	public NamedParameterJdbcOperations getDao() {
+		return namedParameterJdbcTemplate;
 	}
 
 	/**
-	 * @see JdbcTemplate
-	 * @see org.springframework.jdbc.core.JdbcOperations
-	 * 从 Spring 3.1 JdbcTemplate 和 NamedParameterJdbcTemplate 包含了 SimpleJdbcTemplate 的所有功能，但还不完善，不能完全替代
+	 * 由子类实现 NamedParameterJdbcOperations 的注入
+	 * @param namedParameterJdbcTemplate
 	 */
-	public void setSimpleJdbcTemplate(SimpleJdbcOperations simpleJdbcTemplate) {
-		this.simpleJdbcTemplate = simpleJdbcTemplate;
-		log.info(" simpleJdbcOperations injected.");
-	}
-
-	public JdbcOperations getJdbcTemplate() {
-		return jdbcTemplate;
-	}
-
-	public void setJdbcTemplate(JdbcOperations jdbcTemplate) {
-		this.jdbcTemplate = jdbcTemplate;
-		log.info(" jdbcTemplate injected.");
-	}
-
-	/**
-	 * 获取Oracle序列值
-	 * 
-	 * @param seqName
-	 *            序列表名
-	 * @return 序列值
-	 */
-	protected Long getId(String seqName) {
-		String sql = "select  " + seqName + ".nextval from dual ";
-		return getJdbcTemplate().queryForLong(sql);
-	}
-
+	public abstract void setDao(NamedParameterJdbcOperations namedParameterJdbcTemplate);
 }

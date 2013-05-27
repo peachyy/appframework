@@ -4,12 +4,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 /**
- * 应用的 ThreadLocal
+ * 应用的 HttpServletRequest ThreadLocal
  * 
  * @author zhaidw
  * 
  */
-public class AppHolder {
+public class RequestHolder {
 
 	private static final ThreadLocal<HttpServletRequest> requestHolder = new ThreadLocal<HttpServletRequest>();
 
@@ -31,7 +31,6 @@ public class AppHolder {
 	public static void setRequest(HttpServletRequest request) {
 		requestHolder.set(request);
 	}
-
 
 	public static ThreadLocal<HttpServletRequest> getRequestHolder() {
 		return requestHolder;

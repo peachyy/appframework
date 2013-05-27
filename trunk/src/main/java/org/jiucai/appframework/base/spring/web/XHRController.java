@@ -18,9 +18,6 @@ import org.apache.http.message.BasicHeader;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-
-
-
 @Controller
 @RequestMapping("/xhr")
 public class XHRController extends BaseController {
@@ -34,8 +31,8 @@ public class XHRController extends BaseController {
 
 		url = request.getParameter("url");
 		charset = request.getParameter("charset");
-		if(null == charset){
-			charset="utf-8";
+		if (null == charset) {
+			charset = "utf-8";
 		}
 
 		// 必须放在 response.getWriter(); 之前否则不起作用
@@ -86,6 +83,5 @@ public class XHRController extends BaseController {
 		}
 
 	}
-
 
 }

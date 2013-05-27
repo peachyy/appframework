@@ -43,7 +43,7 @@ public class SpringHelper implements ApplicationContextAware {
 	/**
 	 * 返回 Bean初始化时 的 ApplicationContext
 	 * 
-	 * @return
+	 * @return ApplicationContext
 	 */
 	public static ApplicationContext getApplicationContext() {
 		return context;

@@ -5,10 +5,8 @@ public class SqlUtil {
 	/**
 	 * 计算页数
 	 * 
-	 * @param resultSize
-	 *            记录数
-	 * @param pageSize
-	 *            每页显示的记录数
+	 * @param resultSize 记录数
+	 * @param pageSize  每页显示的记录数
 	 * @return 总页数
 	 */
 	public static final Long getPageCount(Long resultSize, Long pageSize) {
@@ -29,7 +27,7 @@ public class SqlUtil {
 	 * 
 	 * @param pageStart
 	 * @param pageSize
-	 * @return
+	 * @return 当前页码
 	 */
 	public static final Long getPage(Long pageStart, Long pageSize) {
 		Long page = 1l;
@@ -40,7 +38,7 @@ public class SqlUtil {
 	/**
 	 * 获取每页展示数据记录数
 	 * 
-	 * @return
+	 * @return 每页的记录数
 	 */
 	public static final Long getPageSize() {
 		return 10L;

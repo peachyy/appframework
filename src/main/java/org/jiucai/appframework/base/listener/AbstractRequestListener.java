@@ -4,7 +4,7 @@ import javax.servlet.ServletRequestEvent;
 import javax.servlet.ServletRequestListener;
 import javax.servlet.http.HttpServletRequest;
 
-import org.jiucai.appframework.base.util.AppHolder;
+import org.jiucai.appframework.base.util.RequestHolder;
 import org.jiucai.appframework.common.util.LogUtil;
 import org.jiucai.appframework.common.util.Logs;
 
@@ -14,13 +14,13 @@ import org.jiucai.appframework.common.util.Logs;
  * @author zhaidw
  * 
  */
-public class AppRequestListener implements ServletRequestListener {
+public abstract class AbstractRequestListener implements ServletRequestListener {
 
 	protected Logs log = LogUtil.getLog(getClass());
 
-	public AppRequestListener() {
+	public AbstractRequestListener() {
 		super();
-		log.info("AppRequestListener inited.");
+		log.info("AbstractRequestListener inited.");
 
 	}
 
@@ -30,14 +30,14 @@ public class AppRequestListener implements ServletRequestListener {
 		HttpServletRequest request = (HttpServletRequest) event
 				.getServletRequest();
 
-		AppHolder.setRequest(request);
+		RequestHolder.setRequest(request);
 
 	}
 
 	@Override
 	public void requestDestroyed(ServletRequestEvent event) {
 
-		AppHolder.getRequestHolder().remove();
+		RequestHolder.getRequestHolder().remove();
 
 	}
 

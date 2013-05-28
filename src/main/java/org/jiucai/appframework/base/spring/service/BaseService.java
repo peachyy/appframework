@@ -11,14 +11,14 @@ import org.springframework.transaction.support.TransactionTemplate;
  * 
  */
 public abstract class BaseService {
+
 	protected Logs log = LogUtil.getLog(getClass());
 
-	protected TransactionTemplate transactionTemplate;
-
-	public TransactionTemplate getTransactionTemplate() {
-		return transactionTemplate;
-	}
-
-	public abstract void setTransactionTemplate(TransactionTemplate transactionTemplate);
+	/**
+	 * 由子类实现 TransactionTemplate 的注入
+	 * 
+	 * @return TransactionTemplate
+	 */
+	public abstract TransactionTemplate getTransactionTemplate();
 
 }

@@ -13,19 +13,10 @@ public abstract class BaseDao {
 
 	protected Logs log = LogUtil.getLog(getClass());
 
-	protected NamedParameterJdbcOperations namedParameterJdbcTemplate;
-
-	/**
-	 * 返回 NamedParameterJdbcOperations
-	 * @return NamedParameterJdbcOperations
-	 */
-	public NamedParameterJdbcOperations getDao() {
-		return namedParameterJdbcTemplate;
-	}
-
 	/**
 	 * 由子类实现 NamedParameterJdbcOperations 的注入
-	 * @param namedParameterJdbcTemplate
+	 * @return NamedParameterJdbcOperations
 	 */
-	public abstract void setDao(NamedParameterJdbcOperations namedParameterJdbcTemplate);
+	public abstract NamedParameterJdbcOperations getDao();
+	
 }

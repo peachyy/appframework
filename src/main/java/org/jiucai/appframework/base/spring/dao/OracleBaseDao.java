@@ -11,8 +11,8 @@ public abstract class OracleBaseDao extends BaseDao {
 	 */
 	protected Long getId(String seqName) {
 
-		String sql = "select " + seqName + ".nextval() from dual ";
-		return getDao().queryForObject(sql, new HashMap<String, Object>(), Long.class);
+		StringBuffer sql = new StringBuffer("select ").append(seqName).append(".nextval from dual ");
+		return getDao().queryForObject(sql.toString(), new HashMap<String, Object>(), Long.class);
 
 	}
 	
@@ -35,7 +35,7 @@ public abstract class OracleBaseDao extends BaseDao {
 		}
 
 		StringBuffer pageSql = new StringBuffer();
-		pageSql.append(" select /*+ FIRST_ROWS */ *  from (");
+		pageSql.append(" select * from (");
 		pageSql.append(" select rownum as r, oracle_table_list.*  from ( ");
 		pageSql.append(sql);
 		pageSql.append(" ) oracle_table_list where rownum <=");

@@ -38,7 +38,7 @@ public abstract class PostgresBaseDao extends BaseDao {
 		}
 
 		StringBuffer pageSql = new StringBuffer();
-		pageSql.append(" select *  from ( ");
+		pageSql.append(" select * from ( ");
 		pageSql.append(sql);
 		pageSql.append(" ) postgres_table_list limit ");
 		pageSql.append( pageSize);

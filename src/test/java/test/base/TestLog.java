@@ -1,13 +1,21 @@
 package test.base;
 
+import junit.framework.Test;
+import junit.framework.TestCase;
+import junit.framework.TestSuite;
+
 import org.jiucai.appframework.common.util.LogUtil;
 import org.jiucai.appframework.common.util.Logs;
 
-public class TestLog {
+public class TestLog extends TestCase {
 
 	protected static Logs logger = LogUtil.getLog(TestLog.class);
 
 	protected Logs log = LogUtil.getLog(getClass());
+
+	public static Test suite() {
+		return new TestSuite(TestLog.class);
+	}
 
 	public void testLog() {
 		log.info("method testLog.");

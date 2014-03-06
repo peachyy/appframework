@@ -10,9 +10,8 @@ public class TestScheduler {
 				"classpath:spring/applicationDbContext.xml",
 				"classpath:spring/defaultJobConfig.xml" };
 
-		ConfigurableApplicationContext ctx = new ClassPathXmlApplicationContext(
-				configFiles);
-
+		ConfigurableApplicationContext ctx = new ClassPathXmlApplicationContext(configFiles);
+		
 		// add a shutdown hook for the above context...
 		ctx.registerShutdownHook();
 
@@ -22,5 +21,4 @@ public class TestScheduler {
 //		ctx.close();
 
 	}
-
 }

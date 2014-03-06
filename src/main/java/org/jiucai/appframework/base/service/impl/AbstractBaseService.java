@@ -17,7 +17,7 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
  * @author jiucai
  *
  */
-public abstract class BaseService implements PageService, DataService, UploadService,
+public abstract class AbstractBaseService implements PageService, DataService, UploadService,
 		DownloadService, BinaryService {
 
 	protected Logs log = LogUtil.getLog(getClass());

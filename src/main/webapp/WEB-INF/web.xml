@@ -3,7 +3,7 @@
 	xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 	id="webapp" version="2.5">
-	<display-name>Emarbox Payment</display-name>
+	<display-name>appframework</display-name>
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>
 		<welcome-file>index.htm</welcome-file>
@@ -43,7 +43,6 @@
 	<listener>
 		<listener-class>org.jiucai.appframework.base.listener.AppShutDownListener</listener-class>
 	</listener>
-
 
 
 
@@ -97,17 +96,17 @@
 		<mime-type>image/vnd.microsoft.icon</mime-type>
 	</mime-mapping>
 
-	<error-page>
-		<error-code>403</error-code>
-		<location>/common/error/403.jsp</location>
-	</error-page>
-	<error-page>
-		<error-code>404</error-code>
-		<location>/common/error/404.jsp</location>
-	</error-page>
-	<error-page>
-		<error-code>500</error-code>
-		<location>/common/error/500.jsp</location>
-	</error-page>
+<!-- 	<error-page> -->
+<!-- 		<error-code>403</error-code> -->
+<!-- 		<location>/common/error/403.jsp</location> -->
+<!-- 	</error-page> -->
+<!-- 	<error-page> -->
+<!-- 		<error-code>404</error-code> -->
+<!-- 		<location>/common/error/404.jsp</location> -->
+<!-- 	</error-page> -->
+<!-- 	<error-page> -->
+<!-- 		<error-code>500</error-code> -->
+<!-- 		<location>/common/error/500.jsp</location> -->
+<!-- 	</error-page> -->
 
 </web-app>

@@ -35,18 +35,28 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
  * @author zhaidw
  * 
  */
-public abstract class AbstractAppController extends BaseController {
-	
-	protected static ClassLoader loader = Thread.currentThread().getContextClassLoader();
+public abstract class AbstractBaseController extends BaseController {
 
-	protected static  String IMG_404 = "static_data/404";
-	
+	protected static ClassLoader loader = Thread.currentThread()
+			.getContextClassLoader();
+
+	/**
+	 * binary service 404 的图片文件classpath 路径
+	 */
+	protected static String IMG_404 = "static/404";
+
 	/**
 	 * Request 请求中的 服务ID 参数名
 	 */
-	private static final String REQ_SID = "sid";
+	protected static String REQ_SID = "sid";
 
-	
+	public String get404ImageClasspath() {
+		return IMG_404;
+	}
+
+	public String getRequestServiceId() {
+		return REQ_SID;
+	}
 
 	/**
 	 * 下载请求
@@ -64,7 +74,7 @@ public abstract class AbstractAppController extends BaseController {
 		String contentType = "application/json; charset=UTF-8";
 		String dataType = DataService.DATA_TYPE_JSON;
 		Map<String, Object> reqParam = parseRequest(request);
-		String serviceId = (String) reqParam.get(REQ_SID);
+		String serviceId = (String) reqParam.get(getRequestServiceId());
 		Boolean errFlag = false;
 
 		if (null != serviceId) {
@@ -100,7 +110,7 @@ public abstract class AbstractAppController extends BaseController {
 			resultData = formatMsg(dataType, "service id is required.");
 
 		}
-		
+
 		if (errFlag) {
 			log.error("upload service failed: " + resultData);
 		}
@@ -122,7 +132,7 @@ public abstract class AbstractAppController extends BaseController {
 			HttpServletResponse response) throws ServletException, IOException {
 		String errorMsg = "";
 		Map<String, Object> reqParam = parseRequest(request);
-		String serviceId = (String) reqParam.get(REQ_SID);
+		String serviceId = (String) reqParam.get(getRequestServiceId());
 		Boolean errFlag = false;
 		String fileName = null;
 		Boolean isFileExists = false;
@@ -130,7 +140,8 @@ public abstract class AbstractAppController extends BaseController {
 		if (null != serviceId) {
 			DownloadService service = null;
 			try {
-				service = SpringHelper.getBean(serviceId + "DownloadService",DownloadService.class);
+				service = SpringHelper.getBean(serviceId + "DownloadService",
+						DownloadService.class);
 
 				if (null != service) {
 
@@ -138,19 +149,22 @@ public abstract class AbstractAppController extends BaseController {
 					isFileExists = service.fileExists(reqParam);
 
 					log.info("download file name:" + fileName);
-					
-					if(isFileExists && StringUtils.isNotBlank(fileName)){
-						
-						//下载的文件名中不能包含空格，否则浏览器无法解析
+
+					if (isFileExists && StringUtils.isNotBlank(fileName)) {
+
+						// 下载的文件名中不能包含空格，否则浏览器无法解析
 						fileName = fileName.trim().replace(" ", "");
-						
-						if (request.getHeader("User-Agent").toUpperCase().indexOf("MSIE") > 0) {
+
+						if (request.getHeader("User-Agent").toUpperCase()
+								.indexOf("MSIE") > 0) {
 							fileName = URLEncoder.encode(fileName, "UTF-8");// IE浏览器
 						} else {
-							fileName = new String(fileName.getBytes("UTF-8"),"ISO8859-1");// 非IE浏览器
+							fileName = new String(fileName.getBytes("UTF-8"),
+									"ISO8859-1");// 非IE浏览器
 						}
-						
-						response.setContentType(service.getContentType(reqParam));
+
+						response.setContentType(service
+								.getContentType(reqParam));
 
 						response.addHeader("Cache-Control", "must-revalidate");
 						response.addHeader("Cache-Control", "no-cache");
@@ -161,27 +175,27 @@ public abstract class AbstractAppController extends BaseController {
 						response.setHeader("Pragma", "no-cache");
 						response.setHeader("Connection", "close");
 
-						response.setHeader("Content-Disposition","attachment;filename=" + fileName);
+						response.setHeader("Content-Disposition",
+								"attachment;filename=" + fileName);
 
-						service.handleRequest(reqParam, response.getOutputStream());
-		
-					}else{
+						service.handleRequest(reqParam,
+								response.getOutputStream());
+
+					} else {
 						errFlag = true;
 						errorMsg = "file not exists or download file name is null.";
-						response.sendError(HttpServletResponse.SC_NOT_FOUND,errorMsg);
+						response.sendError(HttpServletResponse.SC_NOT_FOUND,
+								errorMsg);
 						return;
 					}
-					
-					
 
-					
 				} else {
 					errFlag = true;
 					errorMsg = "service " + serviceId + " not exists.";
 				}
 
 			} catch (Exception e) {
-				
+
 				log.error("文件下载失败: " + ExceptionUtils.getFullStackTrace(e));
 
 				String errMsg = ExceptionUtils.getRootCauseMessage(e);
@@ -202,21 +216,22 @@ public abstract class AbstractAppController extends BaseController {
 
 		if (errFlag) {
 			log.error("download service failed: " + errorMsg);
-			
+
 			request.setAttribute("failed_msg", "请求的文件不存在或已经被删除。");
-			//request.getRequestDispatcher("/common/error/session_failed.jsp").forward(request, response);
-			
-			
+			// request.getRequestDispatcher("/common/error/session_failed.jsp").forward(request,
+			// response);
+
 			String path = request.getContextPath();
-			String basePath = new StringBuffer(request.getScheme()).append("://").append(request.getServerName()).append(":").append(request.getServerPort()).append(path).toString();
-			
+			String basePath = new StringBuffer(request.getScheme())
+					.append("://").append(request.getServerName()).append(":")
+					.append(request.getServerPort()).append(path).toString();
+
 			response.sendRedirect(basePath + "/common/error/session_failed.jsp");
 			return;
 		}
 
 	}
-	
-	
+
 	/**
 	 * 二进制请求
 	 * 
@@ -226,26 +241,25 @@ public abstract class AbstractAppController extends BaseController {
 	 * @throws ServletException
 	 * @throws IOException
 	 */
-	public void binary(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException {
+	public void binary(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		String errorMsg = "";
 		Map<String, Object> reqParam = parseRequest(request);
-		String serviceId = (String) reqParam.get(REQ_SID);
+		String serviceId = (String) reqParam.get(getRequestServiceId());
 		Boolean errFlag = false;
 		Boolean isFileExists = false;
 
 		if (null != serviceId) {
 			BinaryService service = null;
 			try {
-				service = SpringHelper.getBean(serviceId + "BinaryService",BinaryService.class);
+				service = SpringHelper.getBean(serviceId + "BinaryService",
+						BinaryService.class);
 
 				if (null != service) {
 
 					isFileExists = service.fileExists(reqParam);
 
-					
-					if(isFileExists){
-
+					if (isFileExists) {
 
 						response.addHeader("Cache-Control", "must-revalidate");
 						response.addHeader("Cache-Control", "no-cache");
@@ -256,12 +270,13 @@ public abstract class AbstractAppController extends BaseController {
 						response.setHeader("Pragma", "no-cache");
 						response.setHeader("Connection", "close");
 
-						service.handleRequest(reqParam, response.getOutputStream());
-		
-					}else{
+						service.handleRequest(reqParam,
+								response.getOutputStream());
+
+					} else {
 						errFlag = true;
 						errorMsg = "file not exists.";
-						
+
 						response.addHeader("Cache-Control", "must-revalidate");
 						response.addHeader("Cache-Control", "no-cache");
 						response.addHeader("Cache-Control", "no-store");
@@ -272,19 +287,16 @@ public abstract class AbstractAppController extends BaseController {
 						response.setHeader("Connection", "close");
 
 						output404File(response.getOutputStream());
-						
-					}
-					
-					
 
-					
+					}
+
 				} else {
 					errFlag = true;
 					errorMsg = "service " + serviceId + " not exists.";
 				}
 
 			} catch (Exception e) {
-				
+
 				log.error("文件读取失败: " + ExceptionUtils.getFullStackTrace(e));
 
 				String errMsg = ExceptionUtils.getRootCauseMessage(e);
@@ -305,9 +317,9 @@ public abstract class AbstractAppController extends BaseController {
 
 		if (errFlag) {
 			log.error("binary service failed: " + errorMsg);
-			
+
 			request.setAttribute("failed_msg", "请求的文件不存在或已经被删除。");
-			
+
 			return;
 		}
 
@@ -330,16 +342,16 @@ public abstract class AbstractAppController extends BaseController {
 		String templatePage = "error/report_error";
 		Boolean errFlag = false;
 		PageService service = null;
-		
+
 		Map<String, Object> reqParam = parseRequest(request);
-		String serviceId = (String) reqParam.get(REQ_SID);
-		
-		
+		String serviceId = (String) reqParam.get(getRequestServiceId());
+
 		if (null != serviceId) {
 
 			try {
-				
-				service = SpringHelper.getBean(serviceId + "PageService",PageService.class);
+
+				service = SpringHelper.getBean(serviceId + "PageService",
+						PageService.class);
 
 				if (null != service) {
 					templatePage = service.handleRequest(reqParam, model);
@@ -350,7 +362,7 @@ public abstract class AbstractAppController extends BaseController {
 
 			} catch (Exception e) {
 				log.error(ExceptionUtils.getFullStackTrace(e));
-				
+
 				String errMsg = ExceptionUtils.getRootCauseMessage(e);
 				if (null != errMsg && errMsg.length() > 2) {
 					String[] msgs = errMsg.split(":");
@@ -367,11 +379,9 @@ public abstract class AbstractAppController extends BaseController {
 			errorMsg = "service id is required.";
 		}
 
-		
-		
 		if (errFlag) {
 			log.error("page service failed: " + errorMsg);
-			
+
 			model.put("errorMsg", "系统忙，请稍后再试。");
 		}
 
@@ -395,14 +405,15 @@ public abstract class AbstractAppController extends BaseController {
 		String contentType = "application/json; charset=UTF-8";
 		String dataType = DataService.DATA_TYPE_JSON;
 		Map<String, Object> reqParam = parseRequest(request);
-		String serviceId = (String) reqParam.get(REQ_SID);
+		String serviceId = (String) reqParam.get(getRequestServiceId());
 		Boolean errFlag = false;
-		
+
 		if (null != serviceId) {
 
 			DataService service = null;
 			try {
-				service = SpringHelper.getBean(serviceId + "DataService",DataService.class);
+				service = SpringHelper.getBean(serviceId + "DataService",
+						DataService.class);
 
 				if (null != service) {
 					resultData = service.handleRequest(reqParam);
@@ -414,7 +425,8 @@ public abstract class AbstractAppController extends BaseController {
 				}
 
 			} catch (Exception e) {
-				log.error("dataService failed: " + ExceptionUtils.getFullStackTrace(e));
+				log.error("dataService failed: "
+						+ ExceptionUtils.getFullStackTrace(e));
 				String errMsg = ExceptionUtils.getRootCauseMessage(e);
 				if (null != errMsg && errMsg.length() > 2) {
 					String[] msgs = errMsg.split(":");
@@ -435,7 +447,7 @@ public abstract class AbstractAppController extends BaseController {
 		if (errFlag) {
 			log.error("data service failed: " + resultData);
 		}
-		
+
 		output(response, resultData, contentType);
 
 	}
@@ -461,13 +473,14 @@ public abstract class AbstractAppController extends BaseController {
 		return result;
 	}
 
-	protected void output(HttpServletResponse response, String msg, String contentType) {
+	protected void output(HttpServletResponse response, String msg,
+			String contentType) {
 		PrintWriter out = null;
 		try {
 			// 必须放在 response.getWriter(); 之前否则不起作用
 			response.setHeader("Content-Type", contentType);
 			response.setHeader("Pragma", "no-cache");
-			
+
 			response.addHeader("Cache-Control", "must-revalidate");
 			response.addHeader("Cache-Control", "no-cache");
 			response.addHeader("Cache-Control", "no-store");
@@ -475,17 +488,17 @@ public abstract class AbstractAppController extends BaseController {
 			response.setDateHeader("Expires", 0);
 
 			out = response.getWriter();
-			
-			if(null != out ){
-				if(null == msg){
+
+			if (null != out) {
+				if (null == msg) {
 					msg = "";
 				}
 				out.write(msg);
 			}
-			
-		} catch(Exception e){
+
+		} catch (Exception e) {
 			log.error("output failed: " + ExceptionUtils.getFullStackTrace(e));
-		}finally {
+		} finally {
 			if (null != out) {
 				out.close();
 			}
@@ -493,8 +506,7 @@ public abstract class AbstractAppController extends BaseController {
 		}
 
 	}
-	
-	
+
 	protected static File getFileFromClasspath(String classpathFileName) {
 
 		String cp = new StringBuffer(classpathFileName).toString();
@@ -508,22 +520,22 @@ public abstract class AbstractAppController extends BaseController {
 
 	protected void output404File(OutputStream out) {
 
-			File file = getFileFromClasspath(IMG_404);
-			 try {
-					FileInputStream in = new FileInputStream(file);
-			        byte[]  b= new byte[2048];
-					int i = -1;
-					while ((i = in.read(b)) != -1) {
-						out.write(b, 0, i);
-					}
-			        out.close();
-			        in.close(); 
-				} catch (Throwable e) {
-					log.error("BinaryService :",e);
-				}
+		try {
+			File file = getFileFromClasspath(get404ImageClasspath());
+			FileInputStream in = new FileInputStream(file);
+			byte[] b = new byte[4096];
+			int i = -1;
+			while ((i = in.read(b)) != -1) {
+				out.write(b, 0, i);
+			}
+			out.close();
+			in.close();
+		} catch (Throwable e) {
+			log.error("BinaryService  failed:", e);
+		}
 	}
-	
-	protected abstract Map<String, Object> parseRequest(HttpServletRequest request);
-		
+
+	protected abstract Map<String, Object> parseRequest(
+			HttpServletRequest request);
 
 }

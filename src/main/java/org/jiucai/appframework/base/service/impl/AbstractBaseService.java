@@ -22,7 +22,7 @@ public abstract class AbstractBaseService implements PageService, DataService, U
 
 	protected Logs log = LogUtil.getLog(getClass());
 	
-	private final String EXCEPTION_MSG = "not implements yet";
+	protected static String EXCEPTION_MSG = "not implements yet";
 
 	@Override
 	public String handleRequest(Map<String, Object> param,

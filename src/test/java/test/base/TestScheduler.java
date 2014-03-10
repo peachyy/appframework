@@ -18,7 +18,7 @@ public class TestScheduler {
 		int count = ctx.getBeanDefinitionCount();
 		System.out.println("getBeanDefinitionCount: " + count);
 
-//		ctx.close();
+		ctx.close();
 
 	}
 }

@@ -8,7 +8,7 @@
 
 	<groupId>org.jiucai</groupId>
 	<artifactId>appframework</artifactId>
-	<version>1.1.6-SNAPSHOT</version>
+	<version>1.1.6</version>
 
 	<name>appframework</name>
 	<description>java application framework based springframework</description>
@@ -37,9 +37,9 @@
 	</licenses>
 
 	<scm>
-		<connection>scm:svn:https://appframework.googlecode.com/svn/trunk</connection>
-		<developerConnection>scm:svn:https://appframework.googlecode.com/svn/trunk</developerConnection>
-		<url>https://appframework.googlecode.com/svn/trunk</url>
+		<connection>scm:svn:https://appframework.googlecode.com/svn/tags/appframework-1.1.6</connection>
+		<developerConnection>scm:svn:https://appframework.googlecode.com/svn/tags/appframework-1.1.6</developerConnection>
+		<url>https://appframework.googlecode.com/svn/tags/appframework-1.1.6</url>
 	</scm>
 	<!-- <scm> <connection>scm:git:git@github.com:jiucai/appframework.git</connection> 
 		<developerConnection>scm:git:git@github.com:jiucai/appframework.git</developerConnection> 

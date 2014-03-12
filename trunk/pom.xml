@@ -4,11 +4,12 @@
 		<groupId>org.sonatype.oss</groupId>
 		<artifactId>oss-parent</artifactId>
 		<version>7</version>
+		<relativePath />
 	</parent>
 
 	<groupId>org.jiucai</groupId>
 	<artifactId>appframework</artifactId>
-	<version>1.1.6</version>
+	<version>1.1.7-SNAPSHOT</version>
 
 	<name>appframework</name>
 	<description>java application framework based springframework</description>
@@ -36,15 +37,27 @@
 		</license>
 	</licenses>
 
+<!-- 
 	<scm>
-		<connection>scm:svn:https://appframework.googlecode.com/svn/tags/appframework-1.1.6</connection>
-		<developerConnection>scm:svn:https://appframework.googlecode.com/svn/tags/appframework-1.1.6</developerConnection>
-		<url>https://appframework.googlecode.com/svn/tags/appframework-1.1.6</url>
+		<connection>scm:svn:https://appframework.googlecode.com/svn/trunk</connection>
+		<developerConnection>scm:svn:https://appframework.googlecode.com/svn/trunk</developerConnection>
+		<url>https://appframework.googlecode.com/svn/trunk</url>
 	</scm>
-	<!-- <scm> <connection>scm:git:git@github.com:jiucai/appframework.git</connection> 
-		<developerConnection>scm:git:git@github.com:jiucai/appframework.git</developerConnection> 
-		<url>git@github.com:jiucai/appframework.git</url> </scm> -->
 
+	<scm>
+		<connection>scm:git:git@github.com:jiucai/appframework.git</connection> 
+		<developerConnection>scm:git:git@github.com:jiucai/appframework.git</developerConnection> 
+		<url>git@github.com:jiucai/appframework.git</url>
+	</scm>
+ -->
+
+	<scm>
+		<connection>scm:hg:http://bitbucket.org/jiucai/appframework</connection>
+		<developerConnection>scm:hg:https://bitbucket.org/jiucai/appframework</developerConnection>
+		<url>http://bitbucket.org/jiucai/appframework</url>
+	</scm>
+
+<!--
 	<distributionManagement>
 		<repository>
 			<id>sonatype-nexus-staging</id>
@@ -52,7 +65,7 @@
 			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
 		</repository>
 	</distributionManagement>
-
+-->
 
 	<reporting>
 		<outputDirectory>target/site</outputDirectory>

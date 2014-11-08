@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
-	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
-	id="webapp" version="2.5">
+	xmlns="http://java.sun.com/xml/ns/javaee"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+	version="3.0" metadata-complete="false">
 	<display-name>appframework</display-name>
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>
@@ -14,7 +14,7 @@
 	</welcome-file-list>
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
-		<param-value>classpath:spring/application*.xml</param-value>
+		<param-value>classpath:spring/applicationContext.xml</param-value>
 	</context-param>
 
 	<session-config>
@@ -28,8 +28,7 @@
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
-	<!--负责处理由JavaBeans Introspector的使用而引起的内存泄露。 可以保证在web 应用关闭的时候释放与掉这个web 应用相关的 
-		classloader 和由它管理的类 -->
+	<!--负责处理由JavaBeans Introspector的使用而引起的内存泄露。 可以保证在web 应用关闭的时候释放与掉这个web 应用相关的 classloader 和由它管理的类 -->
 	<listener>
 		<listener-class>org.springframework.web.util.IntrospectorCleanupListener</listener-class>
 	</listener>
@@ -37,36 +36,20 @@
 	<listener>
 		<listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
 	</listener>
+	
 	<listener>
-		<listener-class>org.jiucai.appframework.base.listener.AppLogListener</listener-class>
+		<listener-class>test.listener.TestRequestListener</listener-class>
 	</listener>
-	<listener>
-		<listener-class>org.jiucai.appframework.base.listener.AppShutDownListener</listener-class>
-	</listener>
-
-
-
-
-
-
-	<!-- spring3.x上下文监听器 END -->
-	<!-- <listener> -->
-	<!-- <listener-class>org.springframework.security.web.session.HttpSessionEventPublisher</listener-class> -->
-	<!-- </listener> -->
-	<!-- -->
-
+	
+	
 
 
 	<filter>
 		<filter-name>encodingFilter</filter-name>
-		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
 		<init-param>
-			<param-name>encoding</param-name>
-			<param-value>UTF-8</param-value>
-		</init-param>
-		<init-param>
-			<param-name>forceEncoding</param-name>
-			<param-value>true</param-value>
+			<param-name>targetBeanName</param-name>
+			<param-value>characterEncodingFilterBean</param-value>
 		</init-param>
 	</filter>
 	<filter-mapping>
